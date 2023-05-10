@@ -5,9 +5,9 @@ const User = require("../models/userSchema");
 const bcrypt = require("bcryptjs");
 const authenicate = require("../middleware/authenticate");
 
-// router.get("/",(req,res)=>{
-//     res.send("this is testing routes");
-// });
+router.get("/",(req,res)=>{
+    res.send("this is testing routes");
+});
 
 
 // get the products data
@@ -115,7 +115,7 @@ router.get("/getproductsone/:id", async (req, res) => {
         console.log(id);
 
         const individual = await products.findOne({ id: id });
-        console.log(individual + "Getting individual");
+        // console.log(individual + "Getting individual");
 
         res.status(201).json(individual);
     } catch (error) {
@@ -206,7 +206,7 @@ router.delete("/remove/:id", authenicate, async (req, res) => {
 
         req.rootUser.save();
         res.status(201).json(req.rootUser);
-        console.log("iteam remove");
+        console.log("item remove");
 
     } catch (error) {
         console.log(error + "jwt provide then remove");
